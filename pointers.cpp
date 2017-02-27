@@ -20,4 +20,7 @@ int main() {
   //std::cout << *d;
 
   if(d==nullptr)std::cout << "d points to null" << std::endl;
+
+  // constexpr: evaluate at compile time
+  // const: constant
 }
