@@ -1,4 +1,9 @@
 #include<iostream>
+
+ // template: check "generic programming c++" (google it at the meanwhile)
+ template<class T>
+ class MyClass{};
+
 int main() {
   // suffix U explicit unsigned
   auto a = 3U;
@@ -22,6 +27,16 @@ int main() {
 
   // decltype: declaration type specifier: decltype(expr) is the declared type of expr
   // no example yet
+
+  // rvalues and lvalues: Depends con "had identity" and if is "movable"
+  // lifetime: automatic, static, free store, temporary, thread-local
+  // type aliases
+  using Pchar = char*;
+  using PF = int(*)(int);
+
+  typedef short shico;
+  shico e = 1;
+  std::cout << "e: " <<  e << std::endl;
 
   return 0;
 }
