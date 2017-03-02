@@ -15,9 +15,18 @@ int main() {
   std::cout << "a: " << a << " " << "b: " << b << std::endl;
 
   // sizes are 'implementation defined' (google it)
-  std::cout << "size of bool: " << sizeof(bool) << " " << sizeof(char) << " " << sizeof(short) << " " << sizeof(int) << " " << sizeof(long) << " " << sizeof(long long) << std::endl;
+  std::cout <<
+	"size of bool: " << sizeof(bool) <<
+	" size of char: " << sizeof(char) <<
+	" size of short: " << sizeof(short) <<
+	" size of int: " << sizeof(int) <<
+	" size of long: " << sizeof(long) <<
+	" size of long long: " << sizeof(long long) <<
+	std::endl;
 
-  // volatile is needed if you are reading from a spot in memory that, say, a completely separate process/device/whatever may write to
+  // volatile is needed if you are reading from a spot in memory that,
+  // say, a completely separate process/device/whatever may write to
+  // ref: http://stackoverflow.com/a/72617/1556106
   volatile int c = -1;
 
   // references
