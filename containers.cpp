@@ -5,6 +5,20 @@
 http://en.cppreference.com/w/cpp/container/unordered_map/operator_at
 http://www.cplusplus.com/reference/map/map/begin/
 http://www.cplusplus.com/reference/unordered_map/unordered_map/begin/
+
+Cpp containers
+
+Properties explanations:
+- Sequence
+    Elements in sequence containers are ordered in a strict linear sequence. Individual elements are accessed by their
+    position in this sequence.
+- Contiguous storage
+    The elements are stored in contiguous memory locations, allowing constant time random access to elements. Pointers
+    to an element can be offset to access other elements.
+- Fixed-size aggregate
+    The container uses implicit constructors and destructors to allocate the required space statically. Its size is compile-time
+    constant. No memory or time overhead.
+
  * */
 
 #include <iostream>
@@ -12,6 +26,8 @@ http://www.cplusplus.com/reference/unordered_map/unordered_map/begin/
 #include <vector>
 #include <deque>
 #include <unordered_map>
+
+std::array<int, 5> staticArray; // static, implies zero-initialized --> {0,0,0,0,0}
 
 int main(int argc, char *argv[]) {
 
@@ -26,7 +42,7 @@ int main(int argc, char *argv[]) {
   std::cout << "== array == " << std::endl;
   std::array<int, 5> firstArray = {76,5,23,5,1};
   std::array<int, 5> secondArray = {6,53,3,51,31};
-  std::array<int, 5> thirdArray;
+  std::array<int, 5> thirdArray; // unitialized --> {?,?,?,?,?}
 
   std::cout << "firstArray: ";
   for(auto value : firstArray)
@@ -54,6 +70,17 @@ int main(int argc, char *argv[]) {
   thirdArray.fill(5);
   std::cout << "thirdArray: ";
   for(auto value : thirdArray)
+    std::cout << value << " ";
+  std::cout << std::endl;
+
+  std::cout << "staticArray: ";
+  for(auto value : staticArray)
+    std::cout << value << " ";
+  std::cout << std::endl;
+
+  std::array<int, 5> copiedArray = thirdArray;
+  std::cout << "copiedArray (from thirdArray): ";
+  for(auto value : copiedArray)
     std::cout << value << " ";
   std::cout << std::endl;
 
@@ -86,7 +113,7 @@ int main(int argc, char *argv[]) {
   std::cout << "== unordered map ==" << std::endl;
   std::unordered_map<char, int> mymap {{'a',1}, {'b',2}};
   mymap['c'] = 3;
-  mymap['c'] = 4;
+  mymap['c'] = 4; // overwrites old 'c'
   mymap['d'] = 3;
   mymap['e'] = 3;
   std::cout << "mymap: ";
@@ -98,5 +125,8 @@ int main(int argc, char *argv[]) {
     std::cout << " " << it->first << ":" << it->second << " ";
   std::cout << std::endl;
   
+  // Vector
+  // http://en.cppreference.com/w/cpp/container/vector
+
   return 0;
 }
